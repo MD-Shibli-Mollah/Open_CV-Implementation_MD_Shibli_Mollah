@@ -1,0 +1,13 @@
+1. Implement Canny Edge detection algorithm on your own.
+   I have completed all the steps of algorithm like smoothing the input image with gaussian filter, computing the gradient magnitude and angle, 
+   applying non maxima suppression to the gradient M and using double/hysteresis thresholding and connectivity analysis and link edges.
+2. Compare your output with OpenCV's implementation "cv2.Canny()"
+   comparing the output, the built in algorith is perfect and also much faster than my own algorithm. It took 289.042 seconds to implement my own algorithm
+   where cv2.Canny() took only 0.316 seconds to finish. I have used python -m cProfile test.py to test my code.
+3. Pass the same parameters for TL and TH
+   Passing the same parameter doesn't work well with both the algoriths and difference is very high compared to the original one.
+4. Calculate the error rates (true output = OpenCV's Canny, approximated output = your implementation)
+5. Profile your implementation to find out the bottleneck
+   
+
+

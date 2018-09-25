@@ -56,7 +56,6 @@ def convolve(image, kernel):
             output[r, c] = value
     return output
 
-
 #Implementation of Canny Edge detection algorithm my Shibli
 
 # Step 1: Gaussian Filter using raw code
@@ -87,7 +86,7 @@ for i in np.arange(2, height - 2):
 cv2.imwrite("images/filter_gaussian_Boss_family.jpg", image)
 
 print("Gaussian Filter done")
-# step 2: compute gradient magnitude
+# step 2: compute gradient magnitude and angle
 
 Hx = np.array([[-1, 0, 1],
                [-2, 0, 2],
@@ -105,8 +104,8 @@ magnitude = (magnitude / np.max(magnitude)) * 255
 cv2.imwrite("images/Sobel_Boss_Family.jpg", magnitude)
 print("sobel is done")
 
-# step 3: non-maximum suppression
-t_low = 4
+# step 3: non-maxima suppression
+t_low = 2
 E_nms = np.zeros((height, width))
 for i in np.arange(1, height - 1):
     for j in np.arange(1, width - 1):
@@ -117,8 +116,8 @@ for i in np.arange(1, height - 1):
         if locmax.is_local_max(magnitude, i, j, s_theta, t_low):
             E_nms[i, j] = magnitude[i, j]
 
-# step 4: edge tracing and hysteresis thresholding
-t_high = 7
+# step 4: Double/hysteresis thresholding and connectivity analysis
+t_high = 6
 E_bin = np.zeros((height, width))
 for i in np.arange(1, height - 1):
     for j in np.arange(1, width - 1):
