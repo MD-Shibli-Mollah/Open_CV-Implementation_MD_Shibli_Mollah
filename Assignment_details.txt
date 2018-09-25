@@ -8,6 +8,8 @@
    Passing the same parameter doesn't work well with both the algoriths and difference is very high compared to the original one.
 4. Calculate the error rates (true output = OpenCV's Canny, approximated output = your implementation)
 5. Profile your implementation to find out the bottleneck
+   My algorithm takes a lot of time so need to focus more on it. It's also very time consuming to test the code as it takes more than 3 minutes to complete
+   it.
    
 
 
